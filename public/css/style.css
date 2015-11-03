@@ -13,10 +13,15 @@ html, body  {
 }
 
 .img-logo {
-  height: 20px;
-  width: 100px;
+  height: 80px;
+  width: 120px;
 }
 
 nav ul {
   float: right;
+}
+
+.goosncf-header{
+  height:20%;	
+	font-size:1.5em;
 }
