@@ -46,6 +46,17 @@ angular.module('goosncf', [require('angular-resource') ,require('angular-route')
 .config(['$routeProvider', function($routeProvider){
      $routeProvider
 
+
+       .when('/' ,{
+            templateUrl:'public/templates/home.html'
+       })
+
+
+       .when('/home' ,{
+            templateUrl:'public/templates/home.html'
+       })
+
+
        .when('/about' ,{
             templateUrl:'public/templates/about.html'
        })

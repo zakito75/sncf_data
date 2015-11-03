@@ -42,20 +42,25 @@ html, body  {
   text-align:center;
 }
 .gooscnf-search-form {
-  padding: 0 auto;
 
 }
 .gooscnf-search-input {
   height: 10%;
   width: 50%;
-	float:justified;
 }
 
 
 .gooscnf-navbar-static {
 	z-index: 2;
 	position: static;
+}
 
+.goosncf-input-style{
+	padding-top:1em;
+}
+
+.goosncf-search-button{
+  width: 100%;
 }
 
 #footer {
@@ -68,3 +73,8 @@ html, body  {
 				margin: 0 0;
 }
 
+.center-div {
+  margin:0 auto;
+	width:80%;
+
+}

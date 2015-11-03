@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var _ = require('underscore');
 var angular = require('angular');
+var API = '' + '.ngrok.com';
 
 angular.module('goosncf', [require('angular-resource') ,require('angular-route')])
 
@@ -44,6 +45,17 @@ angular.module('goosncf', [require('angular-resource') ,require('angular-route')
 
 .config(['$routeProvider', function($routeProvider){
      $routeProvider
+
+
+       .when('/' ,{
+            templateUrl:'public/templates/home.html'
+       })
+
+
+       .when('/home' ,{
+            templateUrl:'public/templates/home.html'
+       })
+
 
        .when('/about' ,{
             templateUrl:'public/templates/about.html'
