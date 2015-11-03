@@ -17,6 +17,7 @@ html, body  {
   width: 100px;
 }
 
-nav ul {
-  float: right;
+.img_left {
+  height: 100%;
+  width: 20%;
 }
