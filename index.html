@@ -8,23 +8,14 @@
   </head>
 
 <body ng-app="goosncf">
-  <div class="container">
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">
-      <img class="img-logo" alt="Brand" src="/public/images/logo_sncf.jpg">
-      </a>
-      <ul class="nav nav-tabs nav-justified">
-        <li><a href="#">homepage</a></li>
-        <li><a href="#">Recherche</a></li>
-        <li><a href="#">about</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<header-menu></header-menu>
+<banniere-site></banniere-site>
   </div>
       <h1>Bonjour le monde </h1>
+
       <div ng-view></div>
+      <search-input></search-input>
+
+    <footer-page></footer-page>
   </body>
 </html>
