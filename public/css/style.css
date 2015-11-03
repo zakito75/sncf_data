@@ -21,7 +21,17 @@ nav ul {
   float: right;
 }
 
+.header-train-image{
+  width:100%;
+	height:30%;
+
+}
+
 .goosncf-header{
   height:20%;	
 	font-size:1.5em;
+}
+
+.gooscnf-page-header {
+  text-align:center;
 }
