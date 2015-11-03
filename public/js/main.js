@@ -4,6 +4,10 @@ var angular = require('angular');
 
 angular.module('goosncf', [require('angular-resource') ,require('angular-route')])
 
+.controller('DataShowCtrl', [ '$scope', function($scope){
+  $scope.hello = "bonjour c'est la data";
+}])
+
 .directive('searchInput', function(){
   return {
      templateUrl:'public/templates/searchform.html'
@@ -22,6 +26,14 @@ angular.module('goosncf', [require('angular-resource') ,require('angular-route')
   };
 })
 
+.directive('dataPage', function(){
+  return {
+		 controller:'DataShowCtrl',
+     templateUrl:'public/templates/data.html'
+  };
+})
+
+
 .directive('footerPage', function(){
   return {
      templateUrl:'public/templates/footer.html'
@@ -32,11 +44,18 @@ angular.module('goosncf', [require('angular-resource') ,require('angular-route')
 
 .config(['$routeProvider', function($routeProvider){
      $routeProvider
+
        .when('/about' ,{
             templateUrl:'public/templates/about.html'
        })
+
        .when('/search' ,{
             templateUrl:'public/templates/search.html'
+       })
+
+			 .when('/search/:id' ,{
+            templateUrl:'public/templates/data.html'
        });
+
 
 }]);
