@@ -35,3 +35,13 @@ nav ul {
 .gooscnf-page-header {
   text-align:center;
 }
+.gooscnf-search-form {
+  padding: 0 auto;
+
+}
+.gooscnf-search-input {
+  height: 10%;
+  width: 50%;
+	float:justified;
+
+}
