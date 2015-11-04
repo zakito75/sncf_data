@@ -31,6 +31,7 @@ angular.module('goosncf', [
 	$http.get(API+'/q='+ $routeParams.terms +'/type=' +  $routeParams.options)
 	.then(function(response){
 		$scope.infos = response.data ;
+		window.info = response.data ;
 	});
 	
 	// ---- Fin request serveur
@@ -46,6 +47,7 @@ angular.module('goosncf', [
 	$http.get(API+'/lat='+ $routeParams.latitude +'/lon=' +  $routeParams.longitude)
 	.then(function(response){
 		$scope.infos = response.data ;
+		window.info = response.data ;
 	});
 	
 	// ---- Fin request serveur
