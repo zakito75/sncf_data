@@ -1,8 +1,9 @@
 var $ = require('jquery');
 var _ = require('underscore');
 var angular = require('angular');
-var leaflet = require('./angular-leaflet-directive.js');
+
 var API = 'https://2b60c503.ngrok.com';
+var data = null;
 
 var cl = function(something){
   return console.log(something);
@@ -16,12 +17,15 @@ angular.module('goosncf', [
 .controller('DataShowCtrl', [ '$scope', '$routeParams', '$http', function($scope, $routeParams, $http){
   $scope.hello = "bonjour c'est la data";
 
-	// Requete Serveur en get
+	// Requete Serveur en get ----
 	$http.get(API+'/q='+ $routeParams.terms +'/type=' +  $routeParams.options)
 	.then(function(response){
-		cl(response);
-		$scope.info	 = response.data ;
+		$scope.info = response.data ;
 	});
+	
+	// ---- Fin request serveur
+
+	
 	
 	
 }])
