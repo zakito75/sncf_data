@@ -1,28 +1,30 @@
-<div class="container center-div">
-				<form action="/#/search" method="GET">
+<div class="container center-div" ng-controller="DataSearchCtrl">
 	
+<form>
+				
+				
  <div class="form-group">
 	<label for="search_term">Cherchez votre équipement</label>
-  <input id="search_term" name="search_equipment" type="text" class='form-control input-lg' placeholder="Entrez votre équipement...">
+  <input id="search_term" ng-model="data.terms" type="text" class='form-control input-lg' placeholder="Entrez votre équipement...">
  </div>
 
  <div class="form-group">
 	<label for="search_type">Choisir votre type</label>
- 	<select id="search_type" name="search_type_category" class='form-control'>
+ 	<select id="search_type" ng-model="data.options" class='form-control'>
 					
-					<option value="1">Equipe</option>
-					<option value="2">Code</option>
-					<option value="3">Alpha</option>
-					<option value="4">Bravo</option>
+					<option value="1">Appareil de voie</option>
+					<option value="2">Circuit de voie</option>
+					<option value="3">Passage à niveau</option>
+					<option value="4">Capteurs</option>
 	
 	</select>
  </div>
 
  <div class="form-group">
-				 <button class="btn btn-alert btn-lg goosncf-search-button">Rechercher</button>
+				 <input type="submit" class="btn btn-alert btn-lg goosncf-search-button" ng-click="searchdata(data)">Rechercher</button>
 
  </div>
 				
-				</form>
 
+</form>
 </div>

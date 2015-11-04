@@ -2,7 +2,7 @@ var $ = require('jquery');
 var _ = require('underscore');
 var angular = require('angular');
 var leaflet = require('./angular-leaflet-directive.js');
-var API = '' + '.ngrok.com';
+var API = 'https://2b60c503.ngrok.com';
 
 var cl = function(something){
   return console.log(something);
@@ -13,12 +13,27 @@ angular.module('goosncf', [
 				require('angular-route')
 ])
 
-.controller('DataShowCtrl', [ '$scope', '$routeParams', function($scope, $routeParams){
+.controller('DataShowCtrl', [ '$scope', '$routeParams', '$http', function($scope, $routeParams, $http){
   $scope.hello = "bonjour c'est la data";
-	var info = $routeParams;
-	cl(info);
+
+	// Requete Serveur en get
+	$http.get(API+'/q='+ $routeParams.terms +'/type=' +  $routeParams.options)
+	.then(function(response){
+		cl(response);
+		$scope.info	 = response.data ;
+	});
+	
 	
 }])
+
+.controller('DataSearchCtrl', [ '$scope', '$location', function($scope, $location){
+  $scope.searchdata = function(data){
+    $location.path('/data/'+ data.terms + '/' + data.options);
+	};
+
+}])
+
+
 
 .directive('searchInput', function(){
   return {
@@ -53,7 +68,7 @@ angular.module('goosncf', [
 })
 
 
-.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
+.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider){
      $routeProvider
 
 
@@ -78,7 +93,7 @@ angular.module('goosncf', [
             templateUrl:'public/templates/search.html'
        })
 
-			 .when('/search/:id' ,{
+			 .when('/data/:terms/:option' ,{
             templateUrl:'public/templates/data.html'
        })
 
@@ -89,5 +104,7 @@ angular.module('goosncf', [
 			 .otherwise({ redirectTo:'/404' });
 
    $locationProvider.html5Mode(true);
+	 $httpProvider.defaults.useXDomain = true;
+   delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
 }]);
