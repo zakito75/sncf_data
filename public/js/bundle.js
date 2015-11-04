@@ -32,7 +32,17 @@ angular.module('goosncf', [
 	$http.get(API+'/q='+ $routeParams.terms +'/type=' +  $routeParams.options)
 	.then(function(response){
 		$scope.infos = response.data ;
+		window.info = response.data ;
 	});
+
+	$.get(API+'/map/q='+ $routeParams.terms +'/type=' +  $routeParams.options, function(info){
+					
+   $('#info').html('<iframe src=" ' + info + ' " frameborder="0"></iframe> ');
+	
+	});
+	
+
+
 	
 	// ---- Fin request serveur
 
@@ -47,6 +57,7 @@ angular.module('goosncf', [
 	$http.get(API+'/lat='+ $routeParams.latitude +'/lon=' +  $routeParams.longitude)
 	.then(function(response){
 		$scope.infos = response.data ;
+		window.info = response.data ;
 	});
 	
 	// ---- Fin request serveur
@@ -87,6 +98,11 @@ angular.module('goosncf', [
   };
 })
 
+.filter('trustAsResourceUrl', ['$sce', function($sce) {
+    return function(val) {
+		        return $sce.trustAsResourceUrl(val);
+		    };
+}]) 
 
 .config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider){
      $routeProvider

@@ -33,6 +33,15 @@ angular.module('goosncf', [
 		$scope.infos = response.data ;
 		window.info = response.data ;
 	});
+
+	$.get(API+'/map/q='+ $routeParams.terms +'/type=' +  $routeParams.options, function(info){
+					
+   $('#info').html('<iframe src=" ' + info + ' " frameborder="0"></iframe> ');
+	
+	});
+	
+
+
 	
 	// ---- Fin request serveur
 
@@ -88,6 +97,11 @@ angular.module('goosncf', [
   };
 })
 
+.filter('trustAsResourceUrl', ['$sce', function($sce) {
+    return function(val) {
+		        return $sce.trustAsResourceUrl(val);
+		    };
+}]) 
 
 .config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider){
      $routeProvider
