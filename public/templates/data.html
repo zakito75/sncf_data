@@ -9,11 +9,11 @@
 								<div class="col-md-9">
 
 										{{ hello }}
-										{{ info.coordinates[0].x }}
-										{{ info.coordinates[0].y }}
-
-										{{ info.coordinates[1].x }}
-										{{ info.coordinates[1].y }}
+										<div >
+														<ul ng-repeat="info in infos">
+																		<li>{{ info }}</li>
+														</ul>
+										</div>
 
 								</div>
 

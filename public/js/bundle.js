@@ -15,21 +15,6 @@ angular.module('goosncf', [
 				require('angular-route')
 ])
 
-.controller('DataShowCtrl', [ '$scope', '$routeParams', '$http', function($scope, $routeParams, $http){
-  $scope.hello = "bonjour c'est la data";
-
-	// Requete Serveur en get ----
-	$http.get(API+'/q='+ $routeParams.terms +'/type=' +  $routeParams.options)
-	.then(function(response){
-		$scope.info = response.data ;
-	});
-	
-	// ---- Fin request serveur
-
-	
-	
-	
-}])
 
 .controller('DataSearchCtrl', [ '$scope', '$location', function($scope, $location){
   $scope.searchdata = function(data){
@@ -38,6 +23,36 @@ angular.module('goosncf', [
 
 }])
 
+
+.controller('DataShowCtrl', [ '$scope', '$routeParams', '$http', function($scope, $routeParams, $http){
+  $scope.hello = "bonjour c'est la data";
+
+	// Requete Serveur en get ----
+	
+	$http.get(API+'/q='+ $routeParams.terms +'/type=' +  $routeParams.options)
+	.then(function(response){
+		$scope.infos = response.data ;
+	});
+	
+	// ---- Fin request serveur
+
+	
+}])
+
+
+.controller('ResultatCtrl', [ '$scope', '$routeParams', '$http', function($scope, $routeParams, $http){
+
+	// Requete Serveur en get ----
+	
+	$http.get(API+'/latitude='+ $routeParams.terms +'/longitude=' +  $routeParams.options)
+	.then(function(response){
+		$scope.infos = response.data ;
+	});
+	
+	// ---- Fin request serveur
+
+	
+}])
 
 
 .directive('searchInput', function(){
@@ -100,6 +115,10 @@ angular.module('goosncf', [
 
 			 .when('/data/:terms/:option' ,{
             templateUrl:'public/templates/data.html'
+       })
+
+			 .when('/info_geo/latitude/:latitude/longitude/:longitude' ,{
+            templateUrl:'public/templates/search_result.html'
        })
 
 			 .when('/404' ,{
