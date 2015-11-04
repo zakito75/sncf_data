@@ -1,6 +1,6 @@
 html, body  {
  margin: 0 0;
- padding: 0 0;
+ padding-top: 2em;
 }
 .container {
   height: 100%;
@@ -24,25 +24,57 @@ html, body  {
 
 .header-train-image{
   width:100%;
-	height:30%;
+	height:40%;
 
 }
 
 .goosncf-header{
-  height:20%;	
+  height:10%;	
 	font-size:1.5em;
 }
+
+.goosncf-container{
+  height:50%;	
+}
+
 
 .gooscnf-page-header {
   text-align:center;
 }
 .gooscnf-search-form {
-  padding: 0 auto;
 
 }
 .gooscnf-search-input {
   height: 10%;
   width: 50%;
-	float:justified;
+}
+
+
+.gooscnf-navbar-static {
+	z-index: 2;
+	position: static;
+}
+
+.goosncf-input-style{
+	padding-top:1em;
+}
+
+.goosncf-search-button{
+  width: 100%;
+}
+
+#footer {
+        margin-top: 1em;
+        padding-top:1em;
+				height: 30px;
+}
+
+.container .credit {
+				margin: 0 0;
+}
+
+.center-div {
+  margin:0 auto;
+	width:80%;
 
 }

@@ -1,5 +1,8 @@
-<html>
+<html lang='en'>
   <head>
+
+	<meta charset='utf-8'>
+	
   <script src='public/js/bundle.js'></script>
   <link href="public/css/normalize.css" rel="stylesheet">
   <link href="public/css/bootstrap.min.css" rel="stylesheet"> 
@@ -9,12 +12,15 @@
 
 <body ng-app="goosncf">
 
-<header-menu></header-menu>
-<banniere-site></banniere-site>
+  <header-menu></header-menu>
+  <banniere-site></banniere-site>
+
+  <div class="container goosncf-container">
 
       <div ng-view></div>
 
-      <search-input></search-input>
+   </div>
+
 
     <footer-page></footer-page>
   </body>
