@@ -43,7 +43,7 @@ angular.module('goosncf', [
 
 	// Requete Serveur en get ----
 	
-	$http.get(API+'/latitude='+ $routeParams.terms +'/longitude=' +  $routeParams.options)
+	$http.get(API+'/lat='+ $routeParams.latitude +'/lon=' +  $routeParams.longitude)
 	.then(function(response){
 		$scope.infos = response.data ;
 	});
